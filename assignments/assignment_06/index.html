@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Student Data</title>
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/pure-min.css"/>
+    <link rel="icon" href="images/favicon.png" />
+</head>
+<body>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            $('body').append('<h1>Assignment 6</h1>');
+            $('body').append('<h3>Student Data</h3>');
+
+            /**
+             * theads [array] : array of string col heads
+             * gdata [json] : json array of data
+             */
+            function buildGrid(gdata)
+            {
+                $('body').append('<div id = "g1"></div>');
+                var grid = '<div class = "grid">';
+                var tdata;
+                for(var i = 0; i < gdata.length; i++)
+                {
+                    grid += '<div class = "item">';
+                        grid += '<div class = "photo"><img width = "100px"; height = "100px"; src ="http://206.189.234.165/assignment_06/card_services_data'+gdata[i]['photo']+'"></div>';
+                            var table = '<table>';
+                                table += '<tr>';
+                                     table+='<td> First: '  +gdata[i]['first_name']+ '</td>';
+                                table += '</tr>';
+                                table += '<tr>';
+                                     table+='<td> Last: ' +gdata[i]['last_name']+ '</td>';
+                                table += '</tr>';
+                                table += '<tr>';
+                                    table+='<td> ID: M' +gdata[i]['mustang_id']+ '</td>';
+                                table += '</tr>';
+                                table += '</table>';
+                                
+                    grid += '</div>';
+                    
+                }
+                grid += '</div>';
+                $('#g1').append(grid);
+                $('.photo').append(table);
+            }
+
+            $.get("206.189.234.165/assignment_06/api.php?route=student")
+                .done(function (data) {
+                    console.log(data);
+                    // builds grid
+                    buildGrid(data);
+                });
+        });
+    </script>
+</body>
+
+</html>
+
+
+

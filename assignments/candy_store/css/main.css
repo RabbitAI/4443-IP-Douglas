@@ -1,0 +1,21 @@
+.head{
+    font-family: 'rock salt', cursive;
+    text-align: center;  
+    background-color: cyan; 
+    border-style: double
+}
+
+form{
+    background-color: salmon;
+    border-style: double;
+    width: 250px;
+    padding: 10px;
+}
+
+legend{
+    font-family: 'rock salt', cursive;
+}
+
+body{
+    background-image:url("http://www.webdesignmash.com/trial/wp-content/uploads/2010/07/candy019.jpg");
+}
